@@ -11,20 +11,19 @@ class WelcomeScene extends Phaser.Scene {
 
   preload() {
     // Carrega todos os assets necessários para a tela inicial
-    this.load.image("fundo", "../../assets/fundo.png");
-    this.load.image("tijolo", "../../assets/tijolos.png");
-    this.load.image("moeda", "../../assets/moeda.png");
-    this.load.image("coracao", "../../assets/coracao.png");
-    this.load.image("espinho", "../../assets/espinho.png");
-    this.load.image("monstro", "../../assets/monstro.png");
-    this.load.image("brilho", "../../assets/brilho.png");
+   this.load.image("fundo", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/fundo.png");
+this.load.image("tijolo", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/tijolos.png");
+this.load.image("moeda", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/moeda.png");
+this.load.image("coracao", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/coracao.png");
+this.load.image("espinho", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/espinho.png");
+this.load.image("monstro", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/monstro.png");
+this.load.image("brilho", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/brilho.png");
 
     // Carrega o spritesheet do personagem
-    this.load.spritesheet("personagem", "../../assets/sprites/personagemAndando3.png", {
+    this.load.spritesheet("personagem", "https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/assets/sprites/personagemAndando3.png", {
       frameWidth: 99,
       frameHeight: 161.6, // 1940/12 frames
     });
-
   }
 
   create() {
