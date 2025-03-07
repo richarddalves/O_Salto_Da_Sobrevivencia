@@ -10,20 +10,20 @@ class WelcomeScene extends Phaser.Scene {
   }
 
   preload() {
-  // Determina a URL base dinamicamente
-  const baseURL = window.location.hostname === 'richarddalves.github.io' 
-    ? '/O_Salto_Da_Sobrevivencia/' 
-    : './';
+  // Define a URL base para todos os assets
+  this.load.setBaseURL('https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/');
   
-  this.load.image("fundo", baseURL + "assets/fundo.png");
-  this.load.image("tijolo", baseURL + "assets/tijolos.png");
-  this.load.image("moeda", baseURL + "assets/moeda.png");
-  this.load.image("coracao", baseURL + "assets/coracao.png");
-  this.load.image("espinho", baseURL + "assets/espinho.png");
-  this.load.image("monstro", baseURL + "assets/monstro.png");
-  this.load.image("brilho", baseURL + "assets/brilho.png");
+  // Carrega os assets com caminhos relativos à URL base
+  this.load.image("fundo", "assets/fundo.png");
+  this.load.image("tijolo", "assets/tijolos.png");
+  this.load.image("moeda", "assets/moeda.png");
+  this.load.image("coracao", "assets/coracao.png");
+  this.load.image("espinho", "assets/espinho.png");
+  this.load.image("monstro", "assets/monstro.png");
+  this.load.image("brilho", "assets/brilho.png");
   
-  this.load.spritesheet("personagem", baseURL + "assets/sprites/personagemAndando3.png", {
+  // Caminho do spritesheet também é relativo à URL base
+  this.load.spritesheet("personagem", "assets/sprites/personagemAndando3.png", {
     frameWidth: 99,
     frameHeight: 161.6,
   });
