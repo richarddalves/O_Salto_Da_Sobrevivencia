@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Salto da Sobrevivência: Desafio das Dimensões</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+
+    <!-- Carrega o framework Phaser via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  </head>
+  <body>
+    <!-- Container do jogo - Simplificado para evitar conflitos com o Phaser -->
+    <div id="game-container">
+      <!-- O jogo será renderizado aqui pelo Phaser -->
+    </div>
+
+    <!-- Mensagem de erro (oculta por padrão) -->
+    <div class="error-message" id="error-message">Erro ao iniciar o jogo. Verifique se seu navegador suporta WebGL ou tente recarregar a página.</div>
+
+    <!-- Rodapé minimalista -->
+    <footer>Desenvolvido por Richard Alves - Projeto da Semana 4 - Inteli</footer>
+
+    <!-- Detecção de erro (se o Phaser não carregar) -->
+    <script>
+      const errorMessage = document.getElementById("error-message");
+
+      window.addEventListener("error", function (e) {
+        if (e.message.includes("Phaser")) {
+          errorMessage.style.display = "block";
+        }
+      });
+    </script>
+
+    <!-- Carrega o jogo via módulo ES6 -->
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

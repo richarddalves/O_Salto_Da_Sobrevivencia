@@ -1,0 +1,118 @@
+/**
+ * Estilos para "O Salto da Sobrevivência: Desafio das Dimensões"
+ * Estilo retrô com elementos visuais inspirados em jogos arcade
+ */
+
+/* Importação de fontes pixeladas para estilo retrô */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* Reseta o estilo padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo da página - fundo escuro */
+body {
+  background-color: #111;
+  font-family: "Press Start 2P", monospace, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #000000, #111122);
+  position: relative;
+}
+
+/* Efeito de scanline sobre todo o conteúdo */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Efeito de curvatura de monitor CRT */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: 998;
+}
+
+/* Container do jogo - com borda para simular monitores antigos */
+#game-container {
+  position: relative;
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.5), 0 0 30px rgba(0, 0, 0, 0.8);
+  width: 800px;
+  height: 600px;
+  border: 10px solid #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Certifica que o canvas fica responsivo */
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated; /* Mantém a estética de pixel art */
+}
+
+/* Rodapé da página */
+footer {
+  margin-top: 20px;
+  font-size: 0.7em;
+  text-align: center;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  font-family: monospace;
+  color: #0ff;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Status de erros do jogo (quando o jogo não carrega) */
+.error-message {
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 1px solid #f00;
+  padding: 15px;
+  margin: 20px;
+  color: #f00;
+  font-family: monospace;
+  max-width: 600px;
+  text-align: center;
+  display: none; /* Oculto até ser necessário */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 820px) {
+  #game-container {
+    width: calc(100% - 20px);
+    height: auto;
+    aspect-ratio: 4/3;
+    border-width: 5px;
+  }
+
+  footer {
+    font-size: 0.6em;
+    margin-top: 10px;
+  }
+}
