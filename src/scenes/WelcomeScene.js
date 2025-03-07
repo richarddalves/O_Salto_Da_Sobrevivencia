@@ -10,22 +10,24 @@ class WelcomeScene extends Phaser.Scene {
   }
 
   preload() {
-    // Carrega todos os assets necessários para a tela inicial
-    this.load.image("fundo", "../../assets/fundo.png");
-    this.load.image("tijolo", "../../assets/tijolos.png");
-    this.load.image("moeda", "../../assets/moeda.png");
-    this.load.image("coracao", "../../assets/coracao.png");
-    this.load.image("espinho", "../../assets/espinho.png");
-    this.load.image("monstro", "../../assets/monstro.png");
-    this.load.image("brilho", "../../assets/brilho.png");
-
-    // Carrega o spritesheet do personagem
-    this.load.spritesheet("personagem", "../../assets/sprites/personagemAndando3.png", {
-      frameWidth: 99,
-      frameHeight: 161.6, // 1940/12 frames
-    });
-
-  }
+  // Determina a URL base dinamicamente
+  const baseURL = window.location.hostname === 'richarddalves.github.io' 
+    ? '/O_Salto_Da_Sobrevivencia/' 
+    : './';
+  
+  this.load.image("fundo", baseURL + "assets/fundo.png");
+  this.load.image("tijolo", baseURL + "assets/tijolos.png");
+  this.load.image("moeda", baseURL + "assets/moeda.png");
+  this.load.image("coracao", baseURL + "assets/coracao.png");
+  this.load.image("espinho", baseURL + "assets/espinho.png");
+  this.load.image("monstro", baseURL + "assets/monstro.png");
+  this.load.image("brilho", baseURL + "assets/brilho.png");
+  
+  this.load.spritesheet("personagem", baseURL + "assets/sprites/personagemAndando3.png", {
+    frameWidth: 99,
+    frameHeight: 161.6,
+  });
+}
 
   create() {
     // ===== CONFIGURAÇÃO DE FUNDO COM PARALAXE =====
