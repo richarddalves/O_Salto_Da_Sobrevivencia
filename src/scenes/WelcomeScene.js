@@ -10,24 +10,21 @@ class WelcomeScene extends Phaser.Scene {
   }
 
   preload() {
-  // Define a URL base para todos os assets
-  this.load.setBaseURL('https://richarddalves.github.io/O_Salto_Da_Sobrevivencia/');
-  
-  // Carrega os assets com caminhos relativos à URL base
-  this.load.image("fundo", "assets/fundo.png");
-  this.load.image("tijolo", "assets/tijolos.png");
-  this.load.image("moeda", "assets/moeda.png");
-  this.load.image("coracao", "assets/coracao.png");
-  this.load.image("espinho", "assets/espinho.png");
-  this.load.image("monstro", "assets/monstro.png");
-  this.load.image("brilho", "assets/brilho.png");
-  
-  // Caminho do spritesheet também é relativo à URL base
-  this.load.spritesheet("personagem", "assets/sprites/personagemAndando3.png", {
-    frameWidth: 99,
-    frameHeight: 161.6,
-  });
-}
+    // Carrega todos os assets necessários para a tela inicial
+    this.load.image("fundo", "../../assets/fundo.png");
+    this.load.image("tijolo", "../../assets/tijolos.png");
+    this.load.image("moeda", "../../assets/moeda.png");
+    this.load.image("coracao", "../../assets/coracao.png");
+    this.load.image("espinho", "../../assets/espinho.png");
+    this.load.image("monstro", "../../assets/monstro.png");
+    this.load.image("brilho", "../../assets/brilho.png");
+
+    // Carrega o spritesheet do personagem
+    this.load.spritesheet("personagem", "../../assets/sprites/personagemAndando3.png", {
+      frameWidth: 99,
+      frameHeight: 161.6, // 1940/12 frames
+    });
+  }
 
   create() {
     // ===== CONFIGURAÇÃO DE FUNDO COM PARALAXE =====
@@ -60,9 +57,13 @@ class WelcomeScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
+    // console.log(game.device.os.desktop);
+    // console.log(Phaser.Device.OS);
+    console.log(this.game.device.os.desktop);
+
     // Adiciona texto de subtítulo
     const subtitleText = this.add
-      .text(0, 40, "DESAFIO DAS DIMENSÕES", {
+      .text(0, 40, this.game.device.os.desktop ? "DESAFIO DAS DIMENSÕES: DESKTOP" : "DESAFIO DAS DIMENSÕES: MOBILE", {
         fontFamily: '"Press Start 2P", Arial',
         fontSize: "16px",
         color: "#ffff00",
