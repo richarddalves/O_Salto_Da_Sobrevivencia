@@ -24,7 +24,6 @@ class WelcomeScene extends Phaser.Scene {
       frameWidth: 99,
       frameHeight: 161.6, // 1940/12 frames
     });
-
   }
 
   create() {
@@ -58,9 +57,13 @@ class WelcomeScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
+    // console.log(game.device.os.desktop);
+    // console.log(Phaser.Device.OS);
+    console.log(this.game.device.os.desktop);
+
     // Adiciona texto de subtítulo
     const subtitleText = this.add
-      .text(0, 40, "DESAFIO DAS DIMENSÕES", {
+      .text(0, 40, this.game.device.os.desktop ? "DESAFIO DAS DIMENSÕES: DESKTOP" : "DESAFIO DAS DIMENSÕES: MOBILE", {
         fontFamily: '"Press Start 2P", Arial',
         fontSize: "16px",
         color: "#ffff00",
